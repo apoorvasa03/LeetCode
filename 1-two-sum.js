@@ -1,4 +1,4 @@
-// o(n)
+// time - o(n)  space - o(n)
 function twoSum(nums, target) {
     let myObject = {}
     for(let i=0; i < nums.length;  i++){
