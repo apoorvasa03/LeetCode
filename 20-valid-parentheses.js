@@ -1,3 +1,5 @@
+
+// t- o(n)  s - o(n)
 function isValid(s){
     let bracketCollection = {
         '(': ')',
