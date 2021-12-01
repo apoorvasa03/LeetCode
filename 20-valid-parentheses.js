@@ -1,26 +1,26 @@
 
 // t- o(n)  s - o(n)
 function isValid(s){
-    let bracketCollection = {
+    let brackets = {
         '(': ')',
         '[': ']',
         '{': '}'
     }
-    let strCollection =[]
+    let stack =[]
+
     for(let i =0; i < s.length; i++){
         if(s[i] === '(' || s[i] === '{' || s[i] === '['){
-            console.log(s[i])
-            strCollection.push(s[i])
+            stack.push(s[i])
         } else {
-            let pop = strCollection.pop()
-            let closingBracket = bracketCollection[pop]
-            if(closingBracket != s[i]){
-                return false
-            }
+            if(brackets[stack.pop()] != s[i]) return false
         }
+        // there is no point in going through the entire string, bcz if stack length is greater than the chars left in s which means less closing brackets
+        if (stack.length > s.length - i) return false;
     }
-    // if strCollection is not empty then those brackets doesnt have closing brackets hence return false
-    return strCollection.length === 0
+    // if stack is not empty then those brackets doesnt have closing brackets hence return false
+    return stack.length === 0
 }
 
-console.log(isValid("()[]{}"))
+console.log(isValid("()[]{}")) // true
+console.log(isValid("()[}{}")) // false
+console.log(isValid("[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]"))  // false

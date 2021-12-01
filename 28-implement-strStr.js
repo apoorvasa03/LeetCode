@@ -1,4 +1,6 @@
-// time - o(n)  s- o(1)
+// TODO KMP algorithm
+
+/* time - o(nm)  space - o(1) */
 function strStr(haystack, needle){
     if(!needle) return 0
     for(let i =0; i < haystack.length; i++){
@@ -7,13 +9,6 @@ function strStr(haystack, needle){
         }
     }
     return -1
-}
-
-function strStrRegEx(haystack, needle){
-    if(!needle) return 0
-    let patter = new RegExp(needle)
-    let result =  haystack.match(patter);
-    return result ? result.index : -1
 }
 
 // without using any inbuilt javascript junctions

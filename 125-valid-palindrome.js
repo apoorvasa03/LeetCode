@@ -1,16 +1,16 @@
-// time - o(n)  space- 0(1)
+/** time - o(n)  space- 0(1) */ 
 function isPalindrome(s){
     s = s.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
-    console.log(s)
     for (let i = 0, j = s.length - 1; i <= j; i++, j--) {
         if (s.charAt(i) !== s.charAt(j)) return false;
       }
     return true
 }
 
-// time - o(n)  space- 0(n)
+/** time - o(n)  space- 0(1) */ 
 function isPalindrome1(s){
-    s = s.replace(/[^a-z]/ig, '').toLowerCase()
+    // /W = /[0-9A-Za-z_]/
+    s = s.replace(/\W|_/ig, '').toLowerCase()
     
     let set = new Set()
     for(let i =0; i< s.length; i++){
@@ -21,7 +21,10 @@ function isPalindrome1(s){
         }
     }
 
-    return set.size <= 1 ? true: false
+    return set.size <= 1 
 }
 
-console.log(isPalindrome("Damosel, a poem? A carol? Or a cameo pale? (So mad!)"))
+console.log(isPalindrome1("A man, a plan, a canal: Panama")) // true
+console.log(isPalindrome("race a car")) // false
+console.log(isPalindrome(" ")) // true
+console.log(isPalindrome("Damosel, a poem? A carol? Or a cameo pale? (So mad!)")) // true
