@@ -21,4 +21,8 @@ function romanToInteger(s){
     return result
 }
 
-console.log(romanToInteger("MCMXCIV"))
+console.log(romanToInteger("MMMDCCCLXXXVIII")) // 3888
+console.log(romanToInteger("MCMXCIV")) // 1994
+console.log(romanToInteger("IX")) // 9
+console.log(romanToInteger("IV")) // 4
+console.log(romanToInteger("III")) // 3
