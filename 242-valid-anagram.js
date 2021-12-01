@@ -10,6 +10,7 @@ function isAnagram(s, t){
     }
     console.log(map)
     for(let i =0; i < t.length; i++){
+        console.log(map[t[i]])
         if(map[t[i]]) map[t[i]] --
         else return false;
     }
@@ -17,3 +18,4 @@ function isAnagram(s, t){
 }
 
 console.log(isAnagram('anagram', 'nagaram'))
+console.log(isAnagram('rat', 'car'))

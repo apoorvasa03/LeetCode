@@ -1,24 +1,31 @@
-var isPalindrome1 = function(s) {
-    s = s.toLowerCase().replace(/[^a-z0-9]/g, '')
-    
-    for(let i=0, j = s.length -1 ; i <= j; i++, j--){
-        if(s[i] !== s[j]) return false
+
+var reverseString = function(s) {
+    let result = []
+    let length = s.length 
+    for(let i=0; i < length; i++) {
+        result.push(s.pop())
     }
-    return true;
+    return result
 };
 
-var isPalindrome = function(s) {
-    s = s.toLowerCase().replace(/[^a-z0-9]/g, '')
-    let set = new Set();
-    for(let i =0; i< s.length; i++){
-        if(set.has(s[i])){
-            set.delete(s[i])
-        }else{
-            set.add(s[i])
-        }
+var reverseString1 = function(s) {
+    let left = 0 
+    let right = s.length -1
+    while(left < right){
+        let temp = s[left]
+        s[left] = s[right]
+        s[right] = temp
+        left++
+        right--
     }
-    console.log(set.values())
-    return set.size <= 1
+    return s
 }
 
-console.log(isPalindrome1('A man, a plan, a canal: Panama'))
+var reverseString2 = function(s) {
+    for(let i =0, j= s.length-1; i < j; i++, j--){
+        [s[i], s[j]] = [s[j], s[i]]
+    }
+    return s
+}
+
+console.log(reverseString2(["h","e","l","l","o"]))
