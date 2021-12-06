@@ -1,4 +1,9 @@
-/** Given a string s, find the length of the longest substring without repeating characters */
+/** Given a string s, find the length of the longest substring without repeating characters 
+ * Input: s = "abcabcbb"
+ * Output: 3
+ * Explanation: The answer is "abc", with the length of 3.
+ * 
+*/
 
 /** time o(n)  space - o(min(m,n))
  *  Time complexity : O(2n) = O(n). In the worst case each character will be visited twice by i and j.
@@ -25,6 +30,6 @@ var lengthOfLongestSubstring = function(s) {
 console.log(lengthOfLongestSubstring("a"))
 console.log(lengthOfLongestSubstring("abcabcbb")) // 3
 console.log(lengthOfLongestSubstring("bbbbb")) // 1
-console.log(lengthOfLongestSubstring("pwwkewj")) // 3
+console.log(lengthOfLongestSubstring("pwwkew")) // 3
 console.log(lengthOfLongestSubstring("abaaac"))  // 2
  
