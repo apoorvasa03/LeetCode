@@ -6,26 +6,30 @@
  */
 
 
-function lengthOfLongestSubstringTwoDistinct(s){
+/** time - o(n) space - o(k)
+ * time - : O(N) in the best case of k distinct characters in the string and O(Nk) in the worst case of N distinct characters in the string.
+*/
+function lengthOfLongestSubstringKDistinct(s, k){
     let left =0;
     let right =0;
-    let set = new Set()
+    let map = new Map()
     let maxLength = 0
 
     while(right < s.length){
-        if(!set.has(s[right]) && set.size <= 2){
-            set.add(s[right]);
-            maxLength = Math.max(maxLength, set.size)
-            right++
-        }else if(!set.has(s[right]) && set.size === 2){
-            set.delete(s[left])
-            left++
-        }else if(set.has(s[right])){
-            maxLength += 1
-            right++
+        // set the char in s with its index and increment the right
+        map.set(s[right], right++)
+
+        if(map.size > k){
+            // find the char which was added first. updated the left with its value and delete it. 
+            let index = Math.min(...map.values())
+            left = index + 1
+            map.delete(s[index])
         }
+
+       maxLength = Math.max(maxLength, right - left)
     }
+
     return maxLength;
 }
 
-console.log(lengthOfLongestSubstringTwoDistinct("leeeleeeeete")) // 3
+console.log(lengthOfLongestSubstringTwoDistinct("eceba", 2)) // 3
