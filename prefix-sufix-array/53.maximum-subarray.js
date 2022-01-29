@@ -1,3 +1,4 @@
+/** time: o(n)  space: o(1)*/
 var maxSubArray = function(nums) {
     let currentMax = nums[0]
     let globalMax = nums[0]
