@@ -1,3 +1,8 @@
+/** time - o(n) space - o
+ * 
+ *Time complexity : O(2n)=O(n). In the worst case each character will be visited twice by right and left
+ */
+
 var lengthOfLongestSubstring = function(s) {
     let right = 0, left = 0;
     let set = new Set()
