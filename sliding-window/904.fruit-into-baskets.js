@@ -1,4 +1,4 @@
-/** time: o(n)  space: o(1)
+/** time: o(n)  space: o(k)
  time comlexcity:  since we move over fruits only twice, its o(2n) = o(n)
 */
 

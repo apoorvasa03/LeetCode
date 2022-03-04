@@ -1,26 +1,49 @@
+/** time: o(n) */
+var characterReplacement1 = function(s, k) {
+    let longestSubstring = 0
+    let map = new Map()
+    let left = 0
+    let freqMax = 0
 
-var characterReplacement = function(s, k) {
-    let left = 0; right = 0
-    let visited = {}
-    let maxCharCount = 0
-    let result = 0
+    for(let right = 0; right < s.length; right++){
+        map.set(s[right], (map.get(s[right]) || 0)+1)
+        freqMax = Math.max(freqMax, map.get(s[right])) 
 
-    while(right < s.length){
-
-        visited[s[right]] =  visited[s[right]] + 1 || 1;
-        maxCharCount = Math.max(maxCharCount, visited[s[right]])
-
-        if((right - left + 1 - maxCharCount > k)){
-            visited[s[left]] = visited[s[left]] - 1;
+        while((right -left +1) - freqMax > k){ 
+            if(map.get(s[left]) > 1){
+                map.set(s[left], map.get(s[left]) -1)
+            }else{
+                map.delete(s[left])
+            }
             left++
-        } else {
-            right++
         }
-        result = Math.max(right - left, result)
+        longestSubstring = Math.max(longestSubstring, right - left + 1)
     }
-
-    return result
+    return longestSubstring
 };
 
+/** time: o(26n)*/
+var characterReplacement = function(s, k) {
+    let longestSubstring = 0
+    let map = new Map()
+    let left = 0
+
+    for(let right = 0; right < s.length; right++){
+        map.set(s[right], (map.get(s[right]) || 0)+1)
+        // check if length of the window - most frequent word in the slide window is less then given k 
+        while((right -left +1) - Math.max(...map.values()) > k){  //  Math.max(...map.values()) this adds 26 to the time complexity
+            if(map.get(s[left]) > 1){
+                map.set(s[left], map.get(s[left]) -1)
+            }else{
+                map.delete(s[left])
+            }
+            left++
+        }
+        longestSubstring = Math.max(longestSubstring, right - left + 1)
+    }
+    return longestSubstring
+};
+
+console.log(characterReplacement("BAAAB", 2))
 console.log(characterReplacement("ABAB", 2))
 console.log(characterReplacement("AABABBA", 1))
