@@ -24,6 +24,23 @@ var lengthOfLongestSubstring = function(s) {
     return maxSubStringLength
 };  
 
+var lengthOfLongestSubstring1 = function(s) {
+    
+  let longestSubStringLen = 0
+  let left = 0
+  let set = new Set()
+
+  for(let right = 0; right < s.length; right++){
+      if(set.has(s[right])){
+          set.delete(s[left])
+          left++
+      }
+      set.add(s[right])
+      longestSubStringLen = Math.max(longestSubStringLen, set.size)
+  }
+  return longestSubStringLen
+}
+
 console.log(lengthOfLongestSubstring("a"))
 console.log(lengthOfLongestSubstring("abcabcbb")) // 3
 console.log(lengthOfLongestSubstring("bbbbb")) // 1
