@@ -1,9 +1,10 @@
 var employeeFreeTime = function(schedules) {
+    /** merge all the schedule into single array */
     const merged = schedules.reduce((merged, schedule)=> [...merged, ...schedule]);
     merged.sort((a,b) => a.start - b.start);
-    console.log(merged)
 
     let freeTime =[], start = merged[0].start, end = merged[0].end;
+    /** if shedule overlap then no free time, else there is a free time */
     for(let i =1; i< merged.length; i++){
         let current = merged[i];
         if(current.start > end){
