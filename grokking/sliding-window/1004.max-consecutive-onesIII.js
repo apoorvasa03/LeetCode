@@ -1,27 +1,28 @@
-/** time - o(n)  space - o(1)
- * here sliding window length will be same or increment in each loop.
-*/
-var longestOnes = function(nums, k = 0) {
-    let left = 0, right = 0
+/** time - o(n)  space - o(1)*/
+var longestOnes = function(nums, k) {
+    let left = 0;
+    let maxLength = 0
+    let zeroCount = 0
 
-   for(right = 0; right < nums.length; right++){
+    for(let right =0; right < nums.length; right++){
+        if(nums[right] == 0) zeroCount++
 
-        if(nums[right] === 0){
-            k--
+        while(zeroCount > k){
+            if(nums[left] == 0) zeroCount--
+            left++ 
         }
-        if(k < 0){
-            if(nums[left] === 0) k++
-            left ++
-        }
-   }
-   return right - left;
+       maxLength = Math.max(maxLength, right - left + 1)
+    }
+    return maxLength
 }
 
 console.log(longestOnes([0,0,0,0], 0))
 console.log(longestOnes([1,1,1,0,0,0,1,1,1,1,0], 2))
 console.log(longestOnes([0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1], 3))
 
-/** time - o(n)  space - o() TODO*/
+/** time - o(n)  space - o(k)
+ * where k is the size of the substring
+*/
 var longestOnes1 = function(nums, k) {
     let map = new Map();
     let left = 0;

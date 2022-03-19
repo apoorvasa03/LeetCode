@@ -23,6 +23,6 @@ var totalFruit = function(fruits) {
     return maxFruits
 };
 
-console.log(totalFruit([1,2,1]))
-console.log(totalFruit([0,1,2,2]))
-console.log(totalFruit([1,2,3,2,2]))
+console.log(totalFruit([1,2,1])) // 3
+console.log(totalFruit([0,1,2,2])) // 3
+console.log(totalFruit([1,2,3,2,2])) // 4

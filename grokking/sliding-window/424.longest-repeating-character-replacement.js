@@ -44,6 +44,6 @@ var characterReplacement = function(s, k) {
     return longestSubstring
 };
 
-console.log(characterReplacement("BAAAB", 2))
-console.log(characterReplacement("ABAB", 2))
-console.log(characterReplacement("AABABBA", 1))
+console.log(characterReplacement("BAAAB", 2))   //5
+console.log(characterReplacement("ABAB", 2))    //4
+console.log(characterReplacement("AABABBA", 1)) //4
