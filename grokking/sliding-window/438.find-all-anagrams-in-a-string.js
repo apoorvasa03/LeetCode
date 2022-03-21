@@ -46,7 +46,7 @@ var findAnagrams1 = function(s, p) {
         neededChars[char] = (neededChars[char] || 0) + 1;
     }
 
-    // slidig window approch, which window length equal to the length of p's length
+    // slidig window approch, which window length = p's length
     let left = 0
     let right = 0
     let count = p.length
@@ -75,5 +75,5 @@ var findAnagrams1 = function(s, p) {
     return result
 };
 
-console.log(findAnagrams("cbaebabacd", "abc"))
-console.log(findAnagrams("abab", "ab"))
+console.log(findAnagrams("cbaebabacd", "abc")) // [ 0, 6 ]
+console.log(findAnagrams("abab", "ab"))         // [ 0, 1, 2 ]

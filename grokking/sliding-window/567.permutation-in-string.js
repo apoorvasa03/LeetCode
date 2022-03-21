@@ -3,36 +3,29 @@
  Space Complexity :
 */
 var checkInclusion = function(s1, s2) {
-    
     let neededChars = {}
-
     for(let char of s1){
-        neededChars[char] = (neededChars[char] || 0) + 1
+        neededChars[char] = (neededChars[char] || 0) + 1;
     }
 
-    let left = 0
-    let right = 0
-    let count = s1.length
+    let count = s1.length, left = 0
 
-    while(right < s2.length){
+    for(let right = 0; right < s2.length; right++){
+       
+        if(neededChars[s2[right]] > 0) count--;
+        neededChars[s2[right]]-- // writting outside the if condition helps, when current value is required, but its value in needChars is 0.
 
-        if(neededChars[s2[right]] > 0) count--
-        neededChars[s2[right]]--
-        right++
+        if(count === 0) return true
 
-        if(count === 0) {
-            return true
-        }
-
-        if(right - left == s1.length){
+        while(right - left + 1 === s1.length){
             if(neededChars[s2[left]] >= 0) count++
-            neededChars[s2[left]]++
+            neededChars[s2[left]]++  
             left++
         }
     }
 
     return false
-};
+}
 
 
 var checkInclusion = function(s1, s2) {
@@ -43,7 +36,7 @@ var checkInclusion = function(s1, s2) {
         neededChars[char] = (neededChars[char] || 0) + 1
     }
 
-    // slidig window approch, with length of window equal to the length of s1 length
+    // slidig window approch, with length of window =  s1 length
     let left = 0
     let right = 0
     let count = s1.length
@@ -64,7 +57,7 @@ var checkInclusion = function(s1, s2) {
         // before moving, if left points to the char we matched with s1, increment the count
         // increment that char's value in the neededChars object (restore the need for that char for the window's future reference).
         if(right - left == s1.length){
-            if(neededChars[s2[left]] >= 0) count++
+            if(neededChars[s2[left]] >= 0) count++ // consider 
             neededChars[s2[left]]++
             left++
         }
@@ -73,6 +66,3 @@ var checkInclusion = function(s1, s2) {
     return false
 };
 
-
-console.log(checkInclusion("ab", "eidbaooo"))
-console.log(checkInclusion("ab", "eidboaoo"))
