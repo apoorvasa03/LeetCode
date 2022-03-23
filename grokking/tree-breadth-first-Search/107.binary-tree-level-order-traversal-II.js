@@ -1,5 +1,5 @@
 /** time: O(N) space: O(N)
- * time: even through we have used 2 while, but we are travesing every node only once, hence O(N) time   
+ * time: even through we have used 2 while, but we are travesing every node only once, hence O(N) time     
 */
  
 var breathTraversal = function(root) {
