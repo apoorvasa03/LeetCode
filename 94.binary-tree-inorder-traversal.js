@@ -1,6 +1,6 @@
 
 /** Time: O(N) space: o(N) */
-var inorderTraversal1 = function(root) {
+var inorderTraversal = function(root) {
     let result = [];
     if(!root) return result;
     let stack = []
@@ -19,7 +19,7 @@ var inorderTraversal1 = function(root) {
     return result
 }
 
-var inorderTraversal = function(root) {
+var inorderTraversal2 = function(root) {
     return !root? [] : [...inorderTraversal(root.left), root.val, ...inorderTraversal(root.right)] 
 }
 
