@@ -41,4 +41,3 @@ console.log(hasPathSum(node5, 22))  // true
 console.log(hasPathSum(node5, 26))  // true
 console.log(hasPathSum(node5, 0))   // false
 console.log(hasPathSum(node5, 30))  // false
-// console.log(inorderSuccessor(node35, node89))   // node 90
