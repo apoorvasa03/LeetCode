@@ -1,22 +1,22 @@
 var isSubtree = function(root, subRoot) {
-      if(!root || !subRoot) return false
-      if(isSameTree(root, subRoot)) return true
-      return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot)
+    if(!root || !subRoot) return false
+    if(isSameTree(root, subRoot)) return true
+    return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot)
 };
 
 function isSameTree(p, q){
-  if(!p && !q) return true
-  if(!p || !q || p.val != q.val) return false
-  return isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
+if(!p && !q) return true
+if(!p || !q || p.val != q.val) return false
+return isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
 }
 
 
 class Node{
-  constructor(val, left =null, right = null){
-      this.val = val;
-      this.left = left;
-      this.right = right
-  }
+constructor(val, left =null, right = null){
+    this.val = val;
+    this.left = left;
+    this.right = right
+}
 }
 
 let node4 = new Node(4)

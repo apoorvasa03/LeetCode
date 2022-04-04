@@ -1,7 +1,7 @@
 var isSubtree = function(root, subRoot) {
     if(!root || !subRoot) return false
-    if(isMatch(root, subRoot)) return true
-    return isSame(root.left, subRoot) || isSubtree(root.right, subRoot)
+    if(isSame(root, subRoot)) return true
+    return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot)
 };
 
 function isSame(p, q){

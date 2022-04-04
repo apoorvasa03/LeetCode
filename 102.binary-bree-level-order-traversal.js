@@ -55,4 +55,15 @@ let node7 = new Node(7)
 let node2 = new Node(2, node3, node4)
 let node1 = new Node(1, node2, node7)
 
-console.log(levelOrder(node1))
+
+let nodeSeven = new Node(7)
+let node15 = new Node(15)
+let node20 = new Node(20, node15, nodeSeven)
+let nodeNine = new Node(9)
+let node10 = new Node(-10, nodeNine, node20)
+
+let menusThree = new Node(-3)
+
+console.log(levelOrder(node10)) // [ [ -10 ], [ 9, 20 ], [ 15, 7 ] 
+console.log(levelOrder(node1))  // [ [ 1 ], [ 2, 7 ], [ 3, 4 ], [ 5, 6, 8, 9 ] ]
+console.log(levelOrder(menusThree)) // [ [ -3 ] ]

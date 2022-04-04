@@ -39,4 +39,4 @@ let node1 = new Node(1, node2, null)
 let nodeTwo = new Node(2)
 let nodeOne = new Node(1, nodeTwo , null)
 
-console.log(isSameTree(node1, nodeOne))
+console.log(isSameTree(node1, nodeOne)) // true
