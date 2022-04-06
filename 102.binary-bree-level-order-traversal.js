@@ -23,6 +23,23 @@ function levelOrder(root){
    return result
 }
 
+var levelOrder2 = function(root) {
+    let queue = [root]
+    let result = []
+    while(queue.length){
+      let len = queue.length
+      let level = []
+      while(len--){
+        let current = queue.shift()
+        level.push(current.val);
+        if(current.left) queue.push(current.left);
+        if(current.right) queue.push(current.right)
+      }
+      result.push(level)
+    }
+    return result;
+  }
+
 /** time - o(n)  space- o(n)
  * time is o(n) since we visit each node only once
 */

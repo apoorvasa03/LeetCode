@@ -53,8 +53,8 @@ let _node1 = new Node(1, _node2, _node3)
 
 let node1 = new Node(1)
 
-console.log(inorderTraversal(node3))    //  [ 9, 15, 7, 20, 3 ]
-console.log(inorderTraversal(_node1))   // [4, 5, 2, 6,7, 3, 1 ]
+console.log(inorderTraversal(node3))    //  [ 9, 3, 15, 20, 7 ]
+console.log(inorderTraversal(_node1))   // [4, 2, 5, 1, 6, 3, 7]
 console.log(inorderTraversal(node1))    // [ 1 ]
 console.log(inorderTraversal([]))       // []
 console.log(inorderTraversal())         // []
