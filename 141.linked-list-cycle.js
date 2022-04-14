@@ -45,6 +45,6 @@ let one = {
     next : two
 }
 
-// four.next = two
+// 
 
 console.log(hasCycle(one)) // true
