@@ -8,9 +8,8 @@ function isAnagram(s, t){
             map[s[i]] = 1
         } else map[s[i]] ++
     }
-    console.log(map)
+    
     for(let i =0; i < t.length; i++){
-        console.log(map[t[i]])
         if(map[t[i]]) map[t[i]] --
         else return false;
     }
