@@ -1,6 +1,6 @@
 /** time - o(n)  space- 0(1) */ 
 function isPalindrome(s){
-    s = s.replace(/\W|_/ig, '').toUpperCase()
+    s = s.replace(/\W|_/ig, '').toUpperCase() // s.toLowerCase().replace(/[^a-z0-9]/ig, '')
     for(let i =0; i < s.length/2; i++){
         if(s[i] !== s[s.length-1-i]) return false
     }

@@ -9,6 +9,21 @@
  *  Time complexity : O(2n) = O(n). In the worst case each character will be visited twice by i and j.
  *  Space complexity : O(min(n, m)). We need O(k) space for checking a substring has no duplicate characters, where k is the size of the Set. The size of the Set is upper bounded by the size of the string n and the size of the charset/alphabet m.
 */
+
+var lengthOfLongestSubstring = function(s) {
+    let set = new Set()
+    let maxLength = 0, left = 0;
+   for(let right = 0; right < s.length; right++){
+       while(set.has(s[right])){
+           set.delete(s[left])
+           left++
+       }
+       set.add(s[right])
+       maxLength = Math.max(maxLength, set.size)
+   }
+    return maxLength
+}
+
 var lengthOfLongestSubstring = function(s) {
     let left =0
     let right =0;
