@@ -8,7 +8,7 @@
        Output: true
  */
 
-/** time - o(nlogn)  space - o(n) */   
+/** time - o(nlogn)  space - o(1) */   
 const canAttendMeetings = function(intervals) {
     intervals.sort((a,b) => a[0] - b[0]);
 
