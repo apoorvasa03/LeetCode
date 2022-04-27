@@ -9,7 +9,7 @@
  * to go to border is any place bprder shld be less that that place 
  * (ie, if at any height, water can flow from it to ocean if neighbour height is less. so if we move from ocean to any height it shld be revereed)
  */
-var pacificAtlantic = function(heights) {
+ var pacificAtlantic = function(heights) {
     let result = []
     let row = heights.length
     let col = heights[0].length
